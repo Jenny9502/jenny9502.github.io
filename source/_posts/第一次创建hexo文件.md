@@ -13,3 +13,5 @@ hexo clean &hexo g :更改了配置文件后，需要更新文件并且重置；
 
 插入图片语法 ```![](图片URL)```  ![](http://c.hiphotos.baidu.com/image/h%3D300/sign=d8419d8cae0f4bfb93d09854334f788f/10dfa9ec8a136327389330209b8fa0ec08fac7a3.jpg)
 
+插入超链接语法 ```[链接名](URL)```  [百度](http://www.baidu.com)
+
