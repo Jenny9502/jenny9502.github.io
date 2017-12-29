@@ -15,3 +15,8 @@ hexo clean &hexo g :更改了配置文件后，需要更新文件并且重置；
 
 插入超链接语法 ```[链接名](URL)```  [百度](http://www.baidu.com)
 
+创建了七牛CDN的网上存储器 -- 管理控制台-对象存储-内容管理-上传文件-选择文件后即可使用链接打开图片
+
+!["bg1"](http://p1p8cvl3a.bkt.clouddn.com/bg1.jpg)
+<img src="http://p1p8cvl3a.bkt.clouddn.com/bg1.jpg" width="200" height="200">
+
