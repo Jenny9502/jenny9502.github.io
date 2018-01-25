@@ -1,5 +1,5 @@
 ---
-title: styled-components
+title: The Learning styled-components
 date: 2018-01-16 17:04:22
 tags:
 ---
@@ -67,4 +67,4 @@ tags:
 中括号里的值可以通过组件里的参数进行判断返回值，控制该Div的字体颜色
 
 
-# 暂时学习到的只有这些，后面学到跟多会继续更新
+# 暂时学习到的只有这些，后面学到更多会继续更新
