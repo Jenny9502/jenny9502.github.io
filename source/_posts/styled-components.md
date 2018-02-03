@@ -4,24 +4,34 @@ date: 2018-01-16 17:04:22
 tags:
 ---
 ## 安装
-	npm install --save styled-components
+
+```bash
+$ npm install --save styled-components
+```
 
 ## 引入
 
-	import React from 'react';
-	import styled from 'styled-components';
+```bash
+import React from 'react';
+import styled from 'styled-components';
+```
 
 ## 使用
 
 ### 定义
-	const Div = styled.div`
-		height:30px;
-	    如同平时写的CSS一样写属性和属性值
-	`;
+
+```bash
+const Div = styled.div`
+	height:30px;
+    如同平时写的CSS一样写属性和属性值
+`;
+```
 ### 使用
+
 	<Div>..</Div>
 
 ### Tips
+
 #### 1.在定义名字时：const 名字 的名字首字母必须是 **大写** 才能起作用
 
 #### 2.使用a标签做引用时，需要结合react-router

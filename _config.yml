@@ -80,3 +80,6 @@ deploy:
   type: git
   repo: git@github.com:Jenny9502/jenny9502.github.io.git
   branch: master 
+
+# img CDN path
+cdn-url: http://p1p8cvl3a.bkt.clouddn.com/
