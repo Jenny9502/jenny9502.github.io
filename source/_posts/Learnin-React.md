@@ -61,6 +61,18 @@ state={
 >当更改了list[2]的值，重新给this.setState({'list',list})赋值后，在Component下组件会刷新，而在PureComponent下组件不会刷新。
 所以，在PureComponent基类下，只有state的根值发生变化才会引发组件的变化。
 
+## 约束组件和非约束组件
 
+### 报错约束组件和非约束组件之一
+
+>在Input组件，不使用defaultvalue来控制值时(也就是用value)，需要添加一个onChange事件，即使是空的也要给。
+
+>在input的type时，checked={checked}，当这个‘checked’值可能会为空时，记得要checked={checked || ''},也要赋值
+
+## 生命周期
+
+### ComponentWillReceiveProps
+
+>使用这个生命周期的时候需要主要，只要以改变state和prop，组件都会触发刷新，所以需要进行判断是否需要刷新组件。
 
 # 更新ing

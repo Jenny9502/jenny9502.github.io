@@ -2,7 +2,6 @@
 title: 使用hexo的基本操作
 date: 2017-12-28 16:26:26
 tags:
-header-img: f.png
 ---
 ## hexo 基本用法和git代码管理 ##
 
