@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0c0b131e-5f91-4a84-add2-3b02c2c36c80" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Learnin-React.md" afterPath="$PROJECT_DIR$/source/_posts/Learnin-React.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/styled-components.md" afterPath="$PROJECT_DIR$/source/_posts/styled-components.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md" afterPath="$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md" afterPath="$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md" />
       <change beforePath="$PROJECT_DIR$/themes/archer" afterPath="$PROJECT_DIR$/themes/archer" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -15,33 +19,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="styled-components.md" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/source/_posts/styled-components.md">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="第一次创建hexo文件.md" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="使用-redux-的相关笔记整理.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="第一次创建hexo文件.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="15" />
+              <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -57,6 +51,10 @@
       <list>
         <option value="$PROJECT_DIR$/themes/archer/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/使用-git-整理笔记.md" />
+        <option value="$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md" />
+        <option value="$PROJECT_DIR$/source/_posts/styled-components.md" />
+        <option value="$PROJECT_DIR$/source/_posts/Learnin-React.md" />
+        <option value="$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md" />
       </list>
     </option>
   </component>
@@ -69,7 +67,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -90,7 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,7 +122,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,17 +157,19 @@
       <updated>1528614359171</updated>
       <workItem from="1528614362483" duration="466000" />
       <workItem from="1529739417437" duration="14000" />
+      <workItem from="1530755800907" duration="10604000" />
+      <workItem from="1530841445894" duration="13229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5245000" />
+    <option name="totallyTimeSpent" value="30142000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20231824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -208,11 +208,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -221,7 +228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -250,14 +256,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/hello-world.md" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/archer/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -270,6 +268,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1701">
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/styled-components.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Learnin-React.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3186">
+          <caret line="118" column="71" lean-forward="false" selection-start-line="118" selection-start-column="71" selection-end-line="118" selection-end-column="71" />
           <folding />
         </state>
       </provider>
@@ -277,15 +289,15 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/第一次创建hexo文件.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="15" />
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/styled-components.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/使用-redux-的相关笔记整理.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="405">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -11,9 +11,9 @@ tags:
 
 	hexo clean &hexo g :更改了配置文件后，需要更新文件并且重置；
 	
-	hexo generate  
+	hexo generate  生成静态文件
 
-	hexo deploy
+	hexo deploy    部署网站
 
 	git status //查看有什么改动的代码，这里运营了git来管理代码
 

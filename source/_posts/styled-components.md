@@ -42,8 +42,8 @@ const Div = styled.div`
 	    如同平时写的CSS一样写属性和属性值
 	`;
 
-	<ALink url=''></ALink> 
-其中的 **url** 要必须存在
+	<ALink to=''></ALink>
+其中的 **to** 要必须存在,就是HTML a标签里的 href
 
 #### 3.hover,action...等样式的编写
 
@@ -76,5 +76,27 @@ const Div = styled.div`
 
 中括号里的值可以通过组件里的参数进行判断返回值，控制该Div的字体颜色
 
+#### 6.继承其他已定义样式
+
+    const Div = styled.div`
+        background: red
+    `;
+    const SpanDiv = styled(Div)`
+        color: #ffffff;
+    `;
+    这样的 SpanDiv 实际是 背景颜色为红色, 字体颜色为白色 的 div
+
+#### 7.继承多个其他已定义样式
+
+    const Div = styled.div`
+        background: red
+    `;
+    const Div2 = styled.div`
+           color: #ffffff
+       `;
+    const BigDiv = styled(Div,Div2)`
+        font-size: 20px
+    `;
+    这样的 BigDiv 实际是 背景颜色为红色,字体颜色为白色,字体大小是20px 的 div
 
 # 暂时学习到的只有这些，后面学到更多会继续更新

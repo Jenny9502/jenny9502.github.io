@@ -43,6 +43,37 @@ state={
 ```
 >只能设置this.setState({'name','hhh'})，不能设置this.setState({'list[2]',3})
 
+## 更新组件 => this.setState
+
+```bash
+state={
+	title: 'is old',
+}
+
+this.setState({title: "is change"});
+console.log(this.state.title)
+
+```
+> 其实的控制台打印的是 is old
+
+>在没有好好学习前,我会这样写
+
+```bash
+    this.setState({title: "is change"});
+    setTimeOut(function(){
+        console.log(this.state.title);
+    },0)
+```
+>在延时器里操作确保得到的值是最新的,但是现在
+
+```bash
+    this.setState({title: "is change"},() => {
+        console.log(this.state.title);
+    });
+```
+>可以写一个回调函数直接在后面操作
+
+
 ## 组件基类
 
 > Component 和 PureComponent 的区别
@@ -74,5 +105,17 @@ state={
 ### ComponentWillReceiveProps
 
 >使用这个生命周期的时候需要主要，只要以改变state和prop，组件都会触发刷新，所以需要进行判断是否需要刷新组件。
+
+```bash
+    eg:
+        componentWillReceiveProps(nextProps) {
+            if (nextProps.location.search !== this.props.location.search) {
+              this.props.dispatch(loadList());
+            }
+```
+
+## key 键
+
+>特别注意在数组遍历取值时,返回的元素中必须带上 key 值,这样才能保证你的更改能正确的执行.并且建议 key 的取值 取唯一标识的 id.
 
 # 更新ing
