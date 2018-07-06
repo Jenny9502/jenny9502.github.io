@@ -348,7 +348,257 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <p>因为项目用的脚手架是<a href="https://github.com/react-boilerplate/react-boilerplate" target="_blank" rel="noopener">react-boilerplate</a>,只要在创建容器(containers)选择添加redux,<br>则会自动生成 actions.js , constants.js , index.js , reducer.js , saga.js , selectors.js 五个文件.</p>
+<p>index.js 就不用解释了吧.</p>
+<h2 id="Constants-js"><a href="#Constants-js" class="headerlink" title="Constants.js"></a>Constants.js</h2><p>用来定义 type 的</p>
+<pre><code>/*
+ * AppConstants
+ * Each action has a corresponding type, which the reducer knows and picks up on.
+ * To avoid weird typos between the reducer and the actions, we save them as
+ * constants here. We prefix them with &apos;yourproject/YourComponent&apos; so we avoid
+ * reducers accidentally picking up actions they shouldn&apos;t.
+ *
+ * Follow this format:
+ * export const YOUR_ACTION_CONSTANT = &apos;yourproject/YourContainer/YOUR_ACTION_CONSTANT&apos;;
+ */
+
+export const LOAD_REPOS = &apos;boilerplate/App/LOAD_REPOS&apos;;
+export const LOAD_REPOS_SUCCESS = &apos;boilerplate/App/LOAD_REPOS_SUCCESS&apos;;
+export const LOAD_REPOS_ERROR = &apos;boilerplate/App/LOAD_REPOS_ERROR&apos;;
+</code></pre><blockquote>
+<p>需要新增 type 时,直接更具上面写法更改就好了,这个 type 就相当于以一个指令,当你需要更改数据时就会发送这样一个 type 信号,然后在<br>action.js, saga.js, reducer.js , 文件就会接收到这个信号,做出相应的操作.</p>
+</blockquote>
+<h2 id="reducer-js"><a href="#reducer-js" class="headerlink" title="reducer.js"></a>reducer.js</h2><p>初始化 state</p>
+<pre><code>/*
+ * AppReducer
+ *
+ * The reducer takes care of our data. Using actions, we can change our
+ * application state.
+ * To add a new action, add it to the switch statement in the reducer function
+ *
+ * Example:
+ * case YOUR_ACTION_CONSTANT:
+ *   return state.set(&apos;yourStateVariable&apos;, true);
+ */
+
+import { fromJS } from &apos;immutable&apos;;
+
+import {
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS,
+  LOAD_REPOS_ERROR,
+} from &apos;./constants&apos;;
+
+// The initial state of the App
+const initialState = fromJS({
+  loading: false,
+  error: false,
+  currentUser: false,
+  userData: {
+    repositories: false,
+  },
+});
+
+function appReducer(state = initialState, action) {
+  switch (action.type) {
+    case LOAD_REPOS:
+      return state
+        .set(&apos;loading&apos;, true)
+        .set(&apos;error&apos;, false)
+        .setIn([&apos;userData&apos;, &apos;repositories&apos;], false);
+    case LOAD_REPOS_SUCCESS:
+      return state
+        .setIn([&apos;userData&apos;, &apos;repositories&apos;], action.repos)
+        .set(&apos;loading&apos;, false)
+        .set(&apos;currentUser&apos;, action.username);
+    case LOAD_REPOS_ERROR:
+      return state
+        .set(&apos;error&apos;, action.error)
+        .set(&apos;loading&apos;, false);
+    default:
+      return state;
+  }
+}
+
+export default appReducer;
+</code></pre><blockquote>
+<p>其中 initialState 就是初始化 参数, appReducer 是对检测到相应的 type 值,进行相应的赋值, 其中的 action.username 是在发送 type 的函数<br>附带的参数值.这个参数会在 actions.js 定义方法的时候定义.</p>
+</blockquote>
+<pre><code>//将 值(true) 赋给 初始化的参数(&apos;loading&apos;)
+.set(&apos;loading&apos;,true)
+</code></pre><h2 id="actions-js"><a href="#actions-js" class="headerlink" title="actions.js"></a>actions.js</h2><pre><code>/*
+ * App Actions
+ *
+ * Actions change things in your application
+ * Since this boilerplate uses a uni-directional data flow, specifically redux,
+ * we have these actions which are the only way your application interacts with
+ * your application state. This guarantees that your state is up to date and nobody
+ * messes it up weirdly somewhere.
+ *
+ * To add a new Action:
+ * 1) Import your constant
+ * 2) Add a function like this:
+ *    export function yourAction(var) {
+ *        return { type: YOUR_ACTION_CONSTANT, var: var }
+ *    }
+ */
+
+import {
+  LOAD_REPOS,
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS_ERROR,
+} from &apos;./constants&apos;;
+
+/**
+ * Load the repositories, this action starts the request saga
+ *
+ * @return {object} An action object with a type of LOAD_REPOS
+ */
+export function loadRepos() {
+  return {
+    type: LOAD_REPOS,
+  };
+}
+
+/**
+ * Dispatched when the repositories are loaded by the request saga
+ *
+ * @param  {array} repos The repository data
+ * @param  {string} username The current username
+ *
+ * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
+ */
+export function reposLoaded(repos, username) {
+  return {
+    type: LOAD_REPOS_SUCCESS,
+    repos,
+    username,
+  };
+}
+
+/**
+ * Dispatched when loading the repositories fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
+ */
+export function repoLoadingError(error) {
+  return {
+    type: LOAD_REPOS_ERROR,
+    error,
+  };
+}
+</code></pre><blockquote>
+<p>actions.js 是告诉机制发生了某个type信号的时候,带了什么参数值,然后回到 reducer.js 判断同一个type 值进行赋值.</p>
+</blockquote>
+<p>其中 loadRepos() ,repoLoadingError(),都没有带其他参数.而我们在reducer.js 里定义接受这些发送过来的type值时,也没有需要接受其他的值.<br>但是 reposLoaded(),这里带了两个参数(repos, username),我们也能在reducer.js 里定义接受这些发送过来的type值时,需要到这两个值,将其赋给 currentUser,[‘userData’, ‘repositories’].</p>
+<h2 id="selectors-js"><a href="#selectors-js" class="headerlink" title="selectors.js"></a>selectors.js</h2><pre><code>/**
+ * The global state selectors
+ */
+
+import { createSelector } from &apos;reselect&apos;;
+
+const selectGlobal = (state) =&gt; state.get(&apos;global&apos;);
+
+const selectRoute = (state) =&gt; state.get(&apos;route&apos;);
+
+const makeSelectCurrentUser = () =&gt; createSelector(
+  selectGlobal,
+  (globalState) =&gt; globalState.get(&apos;currentUser&apos;)
+);
+
+const makeSelectLoading = () =&gt; createSelector(
+  selectGlobal,
+  (globalState) =&gt; globalState.get(&apos;loading&apos;)
+);
+
+const makeSelectError = () =&gt; createSelector(
+  selectGlobal,
+  (globalState) =&gt; globalState.get(&apos;error&apos;)
+);
+
+const makeSelectRepos = () =&gt; createSelector(
+  selectGlobal,
+  (globalState) =&gt; globalState.getIn([&apos;userData&apos;, &apos;repositories&apos;])
+);
+
+const makeSelectLocation = () =&gt; createSelector(
+  selectRoute,
+  (routeState) =&gt; routeState.get(&apos;location&apos;).toJS()
+);
+
+export {
+  selectGlobal,
+  makeSelectCurrentUser,
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectRepos,
+  makeSelectLocation,
+};
+</code></pre><blockquote>
+<p>selectors.js 是用来给 index.js 取值的. 在index.js通过props取值. 如下</p>
+<p>以上是redux的基本实现,一步一步按定义的来,可以很快上手的.</p>
+</blockquote>
+<h2 id="saga-js"><a href="#saga-js" class="headerlink" title="saga.js"></a>saga.js</h2><p>这个是用来执行异步请求的</p>
+<pre><code>/**
+ * Gets the repositories of the user from Github
+ */
+
+import { call, put, select, takeLatest } from &apos;redux-saga/effects&apos;;
+import { LOAD_REPOS } from &apos;containers/App/constants&apos;;
+import { reposLoaded, repoLoadingError } from &apos;containers/App/actions&apos;;
+
+import request from &apos;utils/request&apos;;
+import { makeSelectUsername } from &apos;containers/HomePage/selectors&apos;;
+
+/**
+ * Github repos request/response handler
+ */
+export function* getRepos() {
+  // Select username from store
+  const username = yield select(makeSelectUsername());
+  const requestURL = `https://api.github.com/users/${username}/repos?type=all&amp;sort=updated`;
+
+  try {
+    // Call our request helper (see &apos;utils/request&apos;)
+    const repos = yield call(request, requestURL);
+    yield put(reposLoaded(repos, username));
+  } catch (err) {
+    yield put(repoLoadingError(err));
+  }
+}
+
+/**
+ * Root saga manages watcher lifecycle
+ */
+export default function* githubData() {
+  // Watches for LOAD_REPOS actions and calls getRepos when one comes in.
+  // By using `takeLatest` only the result of the latest API call is applied.
+  // It returns task descriptor (just like fork) so we can continue execution
+  // It will be cancelled automatically on component unmount
+  yield takeLatest(LOAD_REPOS, getRepos);
+}
+</code></pre><blockquote>
+<p>其中 yield takeLatest(LOAD_REPOS, getRepos) 就是用来监听 type 值发出的信号的. 当应用发送了 ‘LOAD_REPOS’<br>这个信号时,就会自动的执行 getRepos() 方法. 在getRepos方法中,我们可以看到,当请求完成成功后,会调用 actions.js 里的<br>reposLoaded(repos, username),并把repos, username两个参数值附送过去</p>
+</blockquote>
+<h2 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h2><p>###取值</p>
+<pre><code>const mapStateToProps = createStructuredSelector({
+      repos: makeSelectRepos(),
+      username: makeSelectUsername(),
+      loading: makeSelectLoading(),
+      error: makeSelectError(),
+    });
+
+    const { repos, username, loading, error} = this.props ;
+</code></pre><h3 id="发送type-其实就是发送action"><a href="#发送type-其实就是发送action" class="headerlink" title="发送type 其实就是发送action"></a>发送type 其实就是发送action</h3><pre><code>dispatch(loadRepos());
+</code></pre><blockquote>
+<p>loadRepos(),在actions.js定义了他所带的type值是:  LOAD_REPOS, 所以saga.js 也会因此触发 getRepos.通过getRepos函数会触发reposLoaded,<br>repoLoadingError 的 action. 然后再触发reducer.js 里的赋值,从而反应给selectors.js 而刷新界面.</p>
+</blockquote>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><blockquote>
+<p>以我开发这段时间来看哦,尽量就是当前容器用只用当前容器的 actions.js , constants.js , reducer.js , saga.js , selectors.js.<br>除非是app.js 下的 全局值. 如果容器引入其他容器的那些type ,action.很容易造成不必要的错误.特别是用了 react-loadable (按需加载).</p>
+</blockquote>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-paginator">
@@ -463,7 +713,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Constants-js"><span class="toc-number">1.</span> <span class="toc-text">Constants.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reducer-js"><span class="toc-number">2.</span> <span class="toc-text">reducer.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#actions-js"><span class="toc-number">3.</span> <span class="toc-text">actions.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#selectors-js"><span class="toc-number">4.</span> <span class="toc-text">selectors.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#saga-js"><span class="toc-number">5.</span> <span class="toc-text">saga.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index-js"><span class="toc-number">6.</span> <span class="toc-text">index.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#发送type-其实就是发送action"><span class="toc-number">6.1.</span> <span class="toc-text">发送type 其实就是发送action</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips"><span class="toc-number">7.</span> <span class="toc-text">Tips</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -476,6 +726,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     

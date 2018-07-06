@@ -358,8 +358,8 @@ const ALink = styled(Link)`
     如同平时写的CSS一样写属性和属性值
 `;
 
-&lt;ALink url=&apos;&apos;&gt;&lt;/ALink&gt; 
-</code></pre><p>其中的 <strong>url</strong> 要必须存在</p>
+&lt;ALink to=&apos;&apos;&gt;&lt;/ALink&gt;
+</code></pre><p>其中的 <strong>to</strong> 要必须存在,就是HTML a标签里的 href</p>
 <h4 id="3-hover-action…等样式的编写"><a href="#3-hover-action…等样式的编写" class="headerlink" title="3.hover,action…等样式的编写"></a>3.hover,action…等样式的编写</h4><pre><code>const Div = styled.div`
     width:100px;
     &amp;:hover,&amp;focus,&amp;active{
@@ -380,7 +380,24 @@ const ALink = styled(Link)`
 &lt;Div active = {true}&gt;黑色字体&lt;/Div&gt;
 &lt;Div active = {false}&gt;白色字体&lt;/Div&gt;
 </code></pre><p>中括号里的值可以通过组件里的参数进行判断返回值，控制该Div的字体颜色</p>
-<h1 id="暂时学习到的只有这些，后面学到更多会继续更新"><a href="#暂时学习到的只有这些，后面学到更多会继续更新" class="headerlink" title="暂时学习到的只有这些，后面学到更多会继续更新"></a>暂时学习到的只有这些，后面学到更多会继续更新</h1>
+<h4 id="6-继承其他已定义样式"><a href="#6-继承其他已定义样式" class="headerlink" title="6.继承其他已定义样式"></a>6.继承其他已定义样式</h4><pre><code>const Div = styled.div`
+    background: red
+`;
+const SpanDiv = styled(Div)`
+    color: #ffffff;
+`;
+这样的 SpanDiv 实际是 背景颜色为红色, 字体颜色为白色 的 div
+</code></pre><h4 id="7-继承多个其他已定义样式"><a href="#7-继承多个其他已定义样式" class="headerlink" title="7.继承多个其他已定义样式"></a>7.继承多个其他已定义样式</h4><pre><code>const Div = styled.div`
+    background: red
+`;
+const Div2 = styled.div`
+       color: #ffffff
+   `;
+const BigDiv = styled(Div,Div2)`
+    font-size: 20px
+`;
+这样的 BigDiv 实际是 背景颜色为红色,字体颜色为白色,字体大小是20px 的 div
+</code></pre><h1 id="暂时学习到的只有这些，后面学到更多会继续更新"><a href="#暂时学习到的只有这些，后面学到更多会继续更新" class="headerlink" title="暂时学习到的只有这些，后面学到更多会继续更新"></a>暂时学习到的只有这些，后面学到更多会继续更新</h1>
     </article>
     <!-- 前后页  -->
     <ul class="post-paginator">
@@ -495,7 +512,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-1"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips"><span class="toc-number">3.3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-在定义名字时：const-名字-的名字首字母必须是-大写-才能起作用"><span class="toc-number">3.3.1.</span> <span class="toc-text">1.在定义名字时：const 名字 的名字首字母必须是 大写 才能起作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用a标签做引用时，需要结合react-router"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.使用a标签做引用时，需要结合react-router</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-hover-action…等样式的编写"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.hover,action…等样式的编写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-编辑下级样式"><span class="toc-number">3.3.4.</span> <span class="toc-text">4.编辑下级样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-实现有活动状态的高亮"><span class="toc-number">3.3.5.</span> <span class="toc-text">5.实现有活动状态的高亮</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#暂时学习到的只有这些，后面学到更多会继续更新"><span class="toc-number"></span> <span class="toc-text">暂时学习到的只有这些，后面学到更多会继续更新</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-1"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips"><span class="toc-number">3.3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-在定义名字时：const-名字-的名字首字母必须是-大写-才能起作用"><span class="toc-number">3.3.1.</span> <span class="toc-text">1.在定义名字时：const 名字 的名字首字母必须是 大写 才能起作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用a标签做引用时，需要结合react-router"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.使用a标签做引用时，需要结合react-router</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-hover-action…等样式的编写"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.hover,action…等样式的编写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-编辑下级样式"><span class="toc-number">3.3.4.</span> <span class="toc-text">4.编辑下级样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-实现有活动状态的高亮"><span class="toc-number">3.3.5.</span> <span class="toc-text">5.实现有活动状态的高亮</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-继承其他已定义样式"><span class="toc-number">3.3.6.</span> <span class="toc-text">6.继承其他已定义样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-继承多个其他已定义样式"><span class="toc-number">3.3.7.</span> <span class="toc-text">7.继承多个其他已定义样式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#暂时学习到的只有这些，后面学到更多会继续更新"><span class="toc-number"></span> <span class="toc-text">暂时学习到的只有这些，后面学到更多会继续更新</span></a>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -508,6 +525,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
